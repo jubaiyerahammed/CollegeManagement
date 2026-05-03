@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navbar + Topbar + Button Bar</title>
+
+<style>
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+    background: #0d1b2a;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
+.topbar a {
+    color: #fff;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #007bff;
+}
+
+/* Mobile menu */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* ===== BUTTON BAR ===== */
+.button-bar {
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Button Colors */
+.Accounts { background: #007bff; }
+.Students { background: #6c757d; }
+.Teachers { background: #28a745; }
+.Courses { background: #dc3545; }
+.Attendance { background: #ffc107; color: #000; }
+.Results { background: #17a2b8; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background: #fff;
+        width: 200px;
+        flex-direction: column;
+        display: none;
+    }
+
+    .nav-links li {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== TOPBAR ===== -->
+<div class="topbar">
+    <div>
+        📞 +81 906-062-2886 | ✉ jubaiyerahammed2886@gmail.com
+    </div>
+    <div>
+        Follow:
+        <a href="#">CodeBridge Japan FB</a>
+        
+    </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+    <div class="logo">College Management system</div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menuToggle">☰</div>
+</nav>
+
+<!-- ===== BUTTON BAR ===== -->
+<div class="button-bar">
+    <button class="btn Accounts">Accounts</button>
+    <button class="btn Students">Students</button>
+    <button class="btn Teachers">Teachers</button>
+    <button class="btn Courses">Courses</button>
+    <button class="btn Attendance">Attendance</button>
+    <button class="btn Results">Results</button>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+const toggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+toggle.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+});
+</script>
+{% block content %}
+{% endblock content %}
+
+</body>
+</html>
+            
+
+
