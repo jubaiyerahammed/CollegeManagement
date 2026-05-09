@@ -1,20 +1,84 @@
+
 {% extends 'common_code/base.html'%}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
 
-{% block content %} 
-
-
-<!-- {% load static %} -->
-
 <head>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/accounts/login_view.css' %}">
-    <title>login</title>
+    <title>Document</title>
 </head>
 <body>
-    study house login view
-    <b>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem deserunt obcaecati quae neque! Voluptatum, ullam veniam, error, a saepe repellendus ut perspiciatis aspernatur sit omnis quis pariatur at porro molestias.</b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae ducimus laudantium quos exercitationem, repudiandae sint? Ab ipsa quos quod asperiores nam autem facilis tempora eius nihil voluptates ea, blanditiis vel.
+    
+
+    <section>
+        <div class="a">
+            <h1>Welcome to Login View</h1>
+        </div>
+    </section>
+    <div class="border">
+        <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia quo facere dolor voluptatibus impedit ab. A suscipit eum nobis officiis deleniti molestias nemo aliquid, ratione facilis ad assumenda corporis tenetur!
+        </p>
+        <b><p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur cumque atque quia tempora quam, voluptatem dolorem enim aliquam corrupti aperiam accusamus, sapiente culpa delectus laborum magnam? Numquam voluptates ut non.
+        </p></b>
+    </div>
+    <div class="login-box">
+        <h2>Login</h2>
+
+        <form>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="email" placeholder="Enter your email">
+            </div>
+
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" placeholder="Enter your password">
+            </div>
+
+            <button class="btn-login">Sign In</button>
+
+            <div class="extra">
+                <p>Forgot password? <a href="#">Click here</a></p>
+            </div>
+        </form>
+    </div>
+    <div class="b">
+        <button>
+            <strong><p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequuntur fugiat nesciunt nihil quidem, tempore debitis reiciendis ducimus accusamus soluta sed sequi quam quibusdam, vero expedita impedit? Voluptate molestias distinctio doloremque.</p></strong>
+        </button>
+    </div>
+    
+<!-- <div class="login-box">
+    <h2>Login</h2>
+
+    <form>
+        <div class="input-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Enter your email">
+        </div>
+
+        <div class="input-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Enter your password">
+        </div>
+
+        <button type="submit" class="btn-login">Sign In</button>
+
+        <div class="extra">
+            <p>Forgot password? <a href="#">Click here</a></p>
+        </div>
+    </form>
+</div> -->
 </body>
 </html>
+{% endblock content %}
 
-{% endblock content %} 

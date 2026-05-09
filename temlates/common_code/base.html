@@ -4,7 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Navbar + Topbar + Button Bar</title>
+<title>accounts/login_view</title>
+{% block styles %}
+{% endblock %}
 
 <style>
 /* Reset */
@@ -17,8 +19,8 @@
 
 /* TOPBAR */
 .topbar {
-    background: #0d1b2a;
-    color: #fff;
+    background: #90a2b4;
+    color: #2f0404;
     display: flex;
     justify-content: space-between;
     padding: 8px 20px;
@@ -26,14 +28,14 @@
 }
 
 .topbar a {
-    color: #fff;
+    color: #ece7e7;
     margin-left: 10px;
     text-decoration: none;
 }
 
 /*NAVBAR */
 .navbar {
-    background: #ffffff;
+    background: #b2a5a5;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,12 +59,12 @@
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #294f64;
     font-weight: 500;
 }
 
 .nav-links a:hover {
-    color: #007bff;
+    color: #0b0f14;
 }
 
 /* Mobile menu */
@@ -85,7 +87,7 @@
     padding: 12px 25px;
     border: none;
     border-radius: 6px;
-    color: #fff;
+    color: #524343;
     cursor: pointer;
     font-weight: bold;
 }
@@ -104,7 +106,7 @@
         position: absolute;
         top: 60px;
         right: 0;
-        background: #fff;
+        background: #200707;
         width: 200px;
         flex-direction: column;
         display: none;
