@@ -75,7 +75,69 @@
 }
 
 /* BUTTON BAR */
-.button-bar {
+/* Button Bar */
+.button-bar{
+    margin-bottom: 40px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Accounts Button */
+.btn{
+    background: #4A90E2;
+    color: rgb(122, 84, 84);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn:hover{
+    background: #357ABD;
+}
+/* Dropdown Container */
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Hidden Box */
+.dropdown-content{
+    display: none;
+    position: absolute;
+    background: rgb(122, 98, 98);
+    min-width: 200px;
+    box-shadow: 0 0 10px #726969;
+    border-radius: 6px;
+    margin-top: 5px;
+    z-index: 10;
+}
+ 
+/* Dropdown Links */
+.dropdown-content a{
+    color: #333;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #874e4e;
+}
+
+.dropdown-content a:hover{
+    background: #f2f2f2;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content{
+    display: block;
+}
+
+
+
+/* .button-bar {
     margin: 40px auto;
     display: flex;
     justify-content: center;
@@ -90,8 +152,39 @@
     color: #524343;
     cursor: pointer;
     font-weight: bold;
+} */
+/* .dropdown{
+    position: relative;
+    display: inline-block;
 }
+/* Hidden dropdown items */
+/* .dropdown-content{
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 180px;
+    box-shadow: 0 0 10px #ccc;
+    border-radius: 6px;
+    margin-top: 5px;
+    z-index: 10;
+} */
 
+/* Dropdown links */
+/* .dropdown-content a{
+    color: #333;
+    padding: 12px 15px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #eee;
+} */
+
+/* .dropdown-content a:hover{
+    background: #f2f2f2;
+} */
+/* Show dropdown on hover */
+/* .dropdown:hover .dropdown-content{
+    display: block;
+} */ 
 /* Button Colors */
 .Accounts { background: #007bff; }
 .Students { background: #6c757d; }
@@ -158,14 +251,29 @@
 </nav>
 
 <!--BUTTON BAR -->
+
 <div class="button-bar">
-    <button class="btn Accounts">Accounts</button>
+    <div class="dropdown">
+        <button class="btn">Accounts ▼</button>
+
+        <div class="dropdown-content">
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'logout' %}">Logout</a>
+            <a href="{% url 'register_student' %}">Register Student</a>
+            <a href="{% url 'register_teacher' %}">Register Teacher</a>
+        </div>
+    </div>
+        
+    
+    <!-- <button class="btn Accounts">Accounts</button> -->
     <button class="btn Students">Students</button>
     <button class="btn Teachers">Teachers</button>
     <button class="btn Courses">Courses</button>
     <button class="btn Attendance">Attendance</button>
     <button class="btn Results">Results</button>
-</div>
+</div>  
+    
+
 
 <!-- JAVASCRIPT -->
 <script>
