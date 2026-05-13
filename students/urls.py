@@ -10,5 +10,6 @@ urlpatterns = [
     path('sc/', views.student_create),
     path('su/', views.student_update),
     path('sde/', views.student_delete),
+    path('si/', views.student_info, name='st_info')
     
 ]  
