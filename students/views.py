@@ -21,6 +21,6 @@ def student_info (request):
 
 
 def show_form(request):
-    frm= StudentRegistration()
+    frm= StudentRegistration(label_suffix='##', initial={'email':'jubaiyahammed@gmail.com'})
     frm.order_fields(field_order=['email','first_name','last_name', 'batch'])
     return render (request, 'students/forms.html', {'forms':frm})
