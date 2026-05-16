@@ -21,6 +21,15 @@ def student_info (request):
 
 
 def show_form(request):
-    frm= StudentRegistration(label_suffix='##', initial={'email':'jubaiyahammed@gmail.com'})
-    frm.order_fields(field_order=['email','first_name','last_name', 'batch'])
+    if request.method== 'POST':
+        frm = StudentRegistration(request.POST)
+        if frm.is_valid():
+            print(frm)
+            print('Execute.GET')
+            print(frm.cleaned_data)
+    else:
+
+        frm= StudentRegistration(label_suffix='##', initial={'email':'jubaiy@gmail.com'})
+        frm.order_fields(field_order=['email','first_name','last_name', 'batch'])
+        print('Execute.GET')
     return render (request, 'students/forms.html', {'forms':frm})
