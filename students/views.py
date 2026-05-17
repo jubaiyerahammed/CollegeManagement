@@ -28,7 +28,7 @@ def show_form(request):
             print(frm)
             print('Execute.GET')
             print(frm.cleaned_data)
-            return HttpResponseRedirect('/successfully')
+            return HttpResponseRedirect('/st/successfully/')
 
     else:
 
