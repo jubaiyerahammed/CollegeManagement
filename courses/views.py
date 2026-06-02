@@ -13,6 +13,15 @@ def enroll_student(request):
     return render(request,'courses/enroll_student.html')
 
 def show_form(request):
-    frm= StudentRegistration( label_suffix='###')
-    frm.order_fields(field_order= ['email','first name', 'last name', 'batch'])
+    if request.method=='POST':
+        frm=StudentRegistration(request.POST)
+        if frm.is_valid():
+            print(frm)
+            print('Execute POST')
+            print(frm.cleaned_data)
+    else:
+        frm= StudentRegistration( label_suffix='###')
+        frm.order_fields(field_order= ['email','first name', 'last name', 'batch'])
+        print('Execute GET')
+
     return render(request, 'courses/forms.html', {'form':frm})
