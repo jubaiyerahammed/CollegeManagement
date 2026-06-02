@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . forms import StudentRegistration
+from django.http import HttpResponseRedirect
 # Create your views here.
 def course_list(request):
     return render(request,'courses/course_list.html')
@@ -19,9 +20,13 @@ def show_form(request):
             print(frm)
             print('Execute POST')
             print(frm.cleaned_data)
+            return HttpResponseRedirect('/cr/successfully')
     else:
         frm= StudentRegistration( label_suffix='###')
         frm.order_fields(field_order= ['email','first name', 'last name', 'batch'])
         print('Execute GET')
 
     return render(request, 'courses/forms.html', {'form':frm})
+
+def success(request):
+    return render(request,'courses/submit.html')
