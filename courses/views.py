@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . forms import StudentRegistration
+from . models import StudentsInfo
 from django.http import HttpResponseRedirect
 # Create your views here.
 def course_list(request):
@@ -17,9 +18,17 @@ def show_form(request):
     if request.method=='POST':
         frm=StudentRegistration(request.POST)
         if frm.is_valid():
-            print(frm)
-            print('Execute POST')
-            print(frm.cleaned_data)
+            cleaned = frm.cleaned_data
+            fname= cleaned['first_name']
+            lname=cleaned['last_name']
+            eml=cleaned['email']
+            btc=cleaned['batch']
+            pas=cleaned['password']
+            rpas=cleaned['re_password']
+            txt=cleaned['textarea']
+            pay=cleaned['payments']
+            Datapsql= StudentsInfo( first_name=fname, last_name=lname, email=eml, batch=btc, password=pas, re_password=rpas, textarea=txt, payments=pay)
+            Datapsql.save()
             return HttpResponseRedirect('/cr/successfully')
     else:
         frm= StudentRegistration( label_suffix='###')
