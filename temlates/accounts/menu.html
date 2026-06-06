@@ -1,0 +1,13 @@
+{% extends "common_code/base.html" %}
+{% block content %}
+
+<h2 class="text-center mb-4">Welcome to TAJ Bank</h2>
+
+<div class="list-group">
+    <a href="/withdraw/" class="list-group-item list-group-item-action">💸 Cash Withdrawal</a>
+    <a href="/deposit/" class="list-group-item list-group-item-action">💰 Cash Deposit</a>
+    <a href="/balance/" class="list-group-item list-group-item-action">📊 Check Balance</a>
+    <a href="/" class="list-group-item list-group-item-action text-danger">🚪 Logout</a>
+</div>
+
+{% endblock %}

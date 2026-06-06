@@ -1,0 +1,16 @@
+{% extends "common_code/base.html" %}
+{% block content %}
+
+<h3 class="mb-3">Cash Deposit</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="number" name="amount" class="form-control mb-3" placeholder="Enter deposit amount">
+    <button class="btn btn-success w-100">Deposit</button>
+</form>
+
+{% if msg %}
+<p class="mt-3 text-center fw-bold">{{ msg }}</p>
+{% endif %}
+
+{% endblock %}
