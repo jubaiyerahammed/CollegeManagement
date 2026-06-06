@@ -1,0 +1,13 @@
+collegemanagement
+    collegemanagement
+    accounts
+    students
+    teachers
+    courses
+    results
+    attendance
+    static
+    templates
+        accounts
+            login_view.html
+            logout_view.html
