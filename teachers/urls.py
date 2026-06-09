@@ -8,6 +8,7 @@ urlpatterns = [
     path('td/', views.teacher_detail),
     path('tc/', views.teacher_create),
     path('tu/', views.teacher_update),
-    path('tde/', views.teacher_delate)
+    path('tde/', views.teacher_delate),
+    path("add/", views.teacher_add, name="teacher_add"),
 
 ]    

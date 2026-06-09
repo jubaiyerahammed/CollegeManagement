@@ -1,0 +1,96 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Glassmorphism */
+.glass-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(14px);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Fade animation */
+.fade-in {
+    animation: fadeIn 0.8s ease forwards;
+    opacity: 0;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Welcome */
+.welcome-card h2 {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+.welcome-card p {
+    color: #9ca3c7;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 24px;
+}
+.stat-card i {
+    font-size: 32px;
+    margin-bottom: 12px;
+    color: #38bdf8;
+}
+.stat-card h3 {
+    font-size: 28px;
+    margin-bottom: 4px;
+}
+
+/* Attendance */
+.attendance-card h3 {
+    margin-bottom: 12px;
+}
+
+/* Two Grid */
+.two-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+.two-grid ul {
+    margin-top: 12px;
+    list-style: none;
+}
+.two-grid li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Quick Actions */
+.quick-actions h3 {
+    margin-bottom: 12px;
+}
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+.action-btn {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(59,130,246,0.25);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.action-btn:hover {
+    background: rgba(59,130,246,0.45);
+}

@@ -14,4 +14,25 @@ class StudentsInfo(models.Model):
     payments= models.DecimalField(max_digits=6, decimal_places=2)
 
     
+from django.db import models
 
+class Course(models.Model):
+    name = models.CharField(max_length=100)
+    code = models.CharField(max_length=20, unique=True)
+    description = models.TextField(blank=True, null=True)
+    credit = models.IntegerField(default=3)
+    department = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.name} ({self.code})"
+
+class Department(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return self.name
+class Semester(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return self.name

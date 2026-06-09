@@ -1,0 +1,105 @@
+{% extends "common_code/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <!-- Welcome Section -->
+    <section class="welcome-card glass-card fade-in">
+        <h2>Welcome back, Admin</h2>
+        <p>Here is your college overview and recent activities</p>
+    </section>
+
+    <!-- Statistics Cards -->
+    <section class="stats-grid">
+
+        <div class="stat-card glass-card fade-in">
+            <i class="fa-solid fa-user-graduate"></i>
+            <h3>{{ student_count }}</h3>
+            <p>Total Students</p>
+        </div>
+
+        <div class="stat-card glass-card fade-in">
+            <i class="fa-solid fa-chalkboard-teacher"></i>
+            <h3>{{ teacher_count }}</h3>
+            <p>Total Teachers</p>
+        </div>
+
+        <div class="stat-card glass-card fade-in">
+            <i class="fa-solid fa-book"></i>
+            <h3>{{ course_count }}</h3>
+            <p>Total Courses</p>
+        </div>
+
+        <div class="stat-card glass-card fade-in">
+            <i class="fa-solid fa-coins"></i>
+            <h3>${{ revenue }}</h3>
+            <p>Total Revenue</p>
+        </div>
+
+    </section>
+
+    <!-- Attendance Summary -->
+    <section class="attendance-card glass-card fade-in">
+        <h3>Attendance Summary</h3>
+        <canvas id="attendanceChart"></canvas>
+    </section>
+
+    <!-- Recent Activities + Upcoming Events -->
+    <section class="two-grid">
+
+        <div class="recent-activities glass-card fade-in">
+            <h3>Recent Activities</h3>
+            <ul>
+                {% for activity in recent_activities %}
+                <li>{{ activity }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="upcoming-events glass-card fade-in">
+            <h3>Upcoming Events</h3>
+            <ul>
+                {% for event in upcoming_events %}
+                <li>{{ event }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions glass-card fade-in">
+        <h3>Quick Actions</h3>
+        <div class="actions-grid">
+
+            <!-- Add Student -->
+            <a href="{% url 'student_add' %}" class="action-btn">
+                <i class="fa-solid fa-user-plus"></i> Add Student
+            </a>
+
+            <!-- Add Teacher -->
+            <a href="{% url 'teacher_add' %}" class="action-btn">
+                <i class="fa-solid fa-user-tie"></i> Add Teacher
+            </a>
+
+            <!-- Add Course -->
+            <a href="{% url 'course_add' %}" class="action-btn">
+                <i class="fa-solid fa-book"></i> Add Course
+            </a>
+
+            <!-- Generate Report -->
+            <a href="{% url 'generate_report' %}" class="action-btn">
+                <i class="fa-solid fa-file"></i> Generate Report
+            </a>
+
+        </div>
+    </section>
+
+
+<script src="{% static 'js/dashboard/dashboard.js' %}"></script>
+
+{% endblock %}

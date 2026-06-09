@@ -1,0 +1,29 @@
+{% extends "common_code/base.html" %}
+{% load static %}
+
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/students/student_add.css' %}">
+
+<div class="add-student-container glass-card fade-in">
+
+    <h2>Add New Student</h2>
+    <p>Fill the form below to register a new student</p>
+
+    <form method="POST" class="student-form">
+        {% csrf_token %}
+
+        <div class="form-grid">
+            {{ form.as_p }}
+        </div>
+
+        <button type="submit" class="submit-btn">
+            <i class="fa-solid fa-check"></i> Save Student
+        </button>
+    </form>
+
+</div>
+
+{% endblock %}

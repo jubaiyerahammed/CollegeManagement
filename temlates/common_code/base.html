@@ -1,294 +1,292 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>College Management System</title>
-{% block styles %}
-{% endblock %}
+    <meta charset="UTF-8">
+    <title>{% block title %}College Management System{% endblock %}</title>
 
-<style>
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-/* TOPBAR */
-.topbar {
-    background: #90a2b4;
-    color: #2f0404;
-    display: flex;
-    justify-content: space-between;
-    padding: 8px 20px;
-    font-size: 14px;
-}
-
-.topbar a {
-    color: #ece7e7;
-    margin-left: 10px;
-    text-decoration: none;
-}
-
-/*NAVBAR */
-.navbar {
-    background: #b2a5a5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: bold;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #294f64;
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: #0b0f14;
-}
-
-/* Mobile menu */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-/* BUTTON BAR */
-/* Button Bar */
-.button-bar{
-    margin-bottom: 40px auto;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-/* Accounts Button */
-.btn{
-    background: #4A90E2;
-    color: rgb(122, 84, 84);
-    padding: 12px 20px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
-}
-
-.btn:hover{
-    background: #357ABD;
-}
-/* Dropdown Container */
-.dropdown{
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Hidden Box */
-.dropdown-content{
-    display: none;
-    position: absolute;
-    background: rgb(122, 98, 98);
-    min-width: 200px;
-    box-shadow: 0 0 10px #726969;
-    border-radius: 6px;
-    margin-top: 5px;
-    z-index: 10;
-}
- 
-/* Dropdown Links */
-.dropdown-content a{
-    color: #333;
-    padding: 12px 15px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #874e4e;
-}
-
-.dropdown-content a:hover{
-    background: #f2f2f2;
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-content{
-    display: block;
-}
-
-
-
-/* .button-bar {
-    margin: 40px auto;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.btn {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    color: #524343;
-    cursor: pointer;
-    font-weight: bold;
-} */
-/* .dropdown{
-    position: relative;
-    display: inline-block;
-}
-/* Hidden dropdown items */
-/* .dropdown-content{
-    display: none;
-    position: absolute;
-    background: white;
-    min-width: 180px;
-    box-shadow: 0 0 10px #ccc;
-    border-radius: 6px;
-    margin-top: 5px;
-    z-index: 10;
-} */
-
-/* Dropdown links */
-/* .dropdown-content a{
-    color: #333;
-    padding: 12px 15px;
-    text-decoration: none;
-    display: block;
-    border-bottom: 1px solid #eee;
-} */
-
-/* .dropdown-content a:hover{
-    background: #f2f2f2;
-} */
-/* Show dropdown on hover */
-/* .dropdown:hover .dropdown-content{
-    display: block;
-} */ 
-/* Button Colors */
-.Accounts { background: #007bff; }
-.Students { background: #6c757d; }
-.Teachers { background: #28a745; }
-.Courses { background: #dc3545; }
-.Attendance { background: #ffc107; color: #000; }
-.Results { background: #17a2b8; }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .nav-links {
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #200707;
-        width: 200px;
-        flex-direction: column;
-        display: none;
-    }
-
-    .nav-links li {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-}
-</style>
+    <!-- Base CSS -->
+    <link rel="stylesheet" href="{% static 'css/common_code/base.css' %}">
 </head>
-
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">
-    <div>
-        📞 +81 906-062-2886 | ✉ jubaiyerahammed2886@gmail.com
-    </div>
-    <div>
-        Follow:
-        <a href="#">CodeBridge Japan FB</a>
-        
-    </div>
-</div>
-
-<!-- NAVBAR -->
-<nav class="navbar">
-    <div class="logo">College Management system</div>
-
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="#">Portfolio</a></li>
-        <li><a href="#">Contact</a></li>
-    </ul>
-
-    <div class="menu-toggle" id="menuToggle">☰</div>
-</nav>
-
-<!--BUTTON BAR -->
-
-<div class="button-bar">
-    <div class="dropdown">
-        <button class="btn">Accounts ▼</button>
-
-        <div class="dropdown-content">
-            <a href="{% url 'login' %}">Login</a>
-            <a href="{% url 'logout' %}">Logout</a>
-            <a href="{% url 'register_student' %}">Register Student</a>
-            <a href="{% url 'register_teacher' %}">Register Teacher</a>
+    <!-- SIDEBAR -->
+    <aside class="cms-sidebar" id="cmsSidebar">
+        <!-- Brand Section -->
+        <div class="sidebar-brand">
+            <div class="brand-logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="brand-text">
+                <span class="brand-title">College Management</span>
+                <span class="brand-subtitle">ERP Dashboard</span>
+            </div>
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn">
+                <i class="fa-solid fa-angle-left"></i>
+            </button>
         </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="sidebar-menu">
+            <ul class="sidebar-menu-list">
+
+                <!-- Dashboard -->
+                <li class="sidebar-item has-dropdown active">
+                    <a href="{% url 'dashboard' %}" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-gauge-high"></i></span>
+                        <span class="sidebar-text">Dashboard</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="{% url 'dashboard' %}" class="sidebar-sublink">Overview</a></li>
+                        <li><a href="{% url 'dashboard_analytics' %}" class="sidebar-sublink">Analytics</a></li>
+                    </ul>
+                </li>
+
+                <!-- Students -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-user-graduate"></i></span>
+                        <span class="sidebar-text">Students</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">Student List</a></li>
+                        <li><a href="#" class="sidebar-sublink">Add Student</a></li>
+                        <li><a href="#" class="sidebar-sublink">Attendance</a></li>
+                        <li><a href="#" class="sidebar-sublink">Results</a></li>
+                        <li><a href="#" class="sidebar-sublink">Fees</a></li>
+                    </ul>
+                </li>
+
+                <!-- Teachers -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-chalkboard-teacher"></i></span>
+                        <span class="sidebar-text">Teachers</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">Teacher List</a></li>
+                        <li><a href="#" class="sidebar-sublink">Add Teacher</a></li>
+                        <li><a href="#" class="sidebar-sublink">Salary Management</a></li>
+                        <li><a href="#" class="sidebar-sublink">Leave Requests</a></li>
+                    </ul>
+                </li>
+
+                <!-- Academics -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-book-open"></i></span>
+                        <span class="sidebar-text">Academics</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">Courses</a></li>
+                        <li><a href="#" class="sidebar-sublink">Subjects</a></li>
+                        <li><a href="#" class="sidebar-sublink">Classes</a></li>
+                        <li><a href="#" class="sidebar-sublink">Timetable</a></li>
+                        <li><a href="#" class="sidebar-sublink">Assignments</a></li>
+                        <li><a href="#" class="sidebar-sublink">Exams</a></li>
+                    </ul>
+                </li>
+
+                <!-- Finance -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-coins"></i></span>
+                        <span class="sidebar-text">Finance</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">Student Fees</a></li>
+                        <li><a href="#" class="sidebar-sublink">Expenses</a></li>
+                        <li><a href="#" class="sidebar-sublink">Salaries</a></li>
+                        <li><a href="#" class="sidebar-sublink">Financial Reports</a></li>
+                    </ul>
+                </li>
+
+                <!-- Administration -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-building-columns"></i></span>
+                        <span class="sidebar-text">Administration</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">Admissions</a></li>
+                        <li><a href="#" class="sidebar-sublink">Notices</a></li>
+                        <li><a href="#" class="sidebar-sublink">Events</a></li>
+                        <li><a href="#" class="sidebar-sublink">Library</a></li>
+                        <li><a href="#" class="sidebar-sublink">Hostel Management</a></li>
+                    </ul>
+                </li>
+
+                <!-- Reports -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-chart-line"></i></span>
+                        <span class="sidebar-text">Reports</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">Attendance Reports</a></li>
+                        <li><a href="#" class="sidebar-sublink">Academic Reports</a></li>
+                        <li><a href="#" class="sidebar-sublink">Finance Reports</a></li>
+                    </ul>
+                </li>
+
+                <!-- Settings -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-gear"></i></span>
+                        <span class="sidebar-text">Settings</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+                    <ul class="sidebar-submenu">
+                        <li><a href="#" class="sidebar-sublink">User Management</a></li>
+                        <li><a href="#" class="sidebar-sublink">Roles & Permissions</a></li>
+                        <li><a href="#" class="sidebar-sublink">System Settings</a></li>
+                        <li><a href="#" class="sidebar-sublink">Backup & Security</a></li>
+                    </ul>
+                </li>
+
+                <!-- Logout -->
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link sidebar-logout">
+                        <span class="sidebar-icon"><i class="fa-solid fa-right-from-bracket"></i></span>
+                        <span class="sidebar-text">Logout</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- MAIN LAYOUT -->
+    <div class="cms-layout">
+
+        <!-- TOPBAR -->
+        <header class="cms-topbar" id="cmsTopbar">
+            <div class="topbar-left">
+                <button class="topbar-sidebar-toggle" id="topbarSidebarToggle">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <div class="topbar-title">
+                    <span class="topbar-system-title">College Management System</span>
+                    <span class="topbar-breadcrumb">Dashboard / Overview</span>
+                </div>
+            </div>
+
+            <div class="topbar-center">
+                <div class="topbar-search">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search students, teachers, courses...">
+                    <div class="search-suggestions" id="searchSuggestions">
+                        <ul>
+                            <li>Search: Students</li>
+                            <li>Search: Teachers</li>
+                            <li>Search: Courses</li>
+                            <li>Search: Results</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="topbar-icon-group">
+                    <div class="topbar-icon-btn" data-dropdown="notificationsDropdown">
+                        <i class="fa-solid fa-bell"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="topbar-icon-btn" data-dropdown="messagesDropdown">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="topbar-icon-btn">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                    <div class="topbar-icon-btn" data-dropdown="quickActionsDropdown">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <div class="topbar-icon-btn" id="themeToggleBtn">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                </div>
+
+                <div class="topbar-profile" id="topbarProfile">
+                    <div class="profile-avatar">
+                        <img src="{% static 'images/logo.png' %}" alt="User">
+                    </div>
+                    <div class="profile-info">
+                        <span class="profile-name">Admin User</span>
+                        <span class="profile-role">System Administrator</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-down profile-arrow"></i>
+
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">My Account</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Change Password</a></li>
+                            <li class="logout"><a href="#">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Notifications Dropdown -->
+                <div class="topbar-dropdown" id="notificationsDropdown">
+                    <div class="dropdown-header">Notifications</div>
+                    <ul>
+                        <li>New student registered</li>
+                        <li>Fee payment received</li>
+                        <li>Exam schedule updated</li>
+                    </ul>
+                </div>
+
+                <!-- Messages Dropdown -->
+                <div class="topbar-dropdown" id="messagesDropdown">
+                    <div class="dropdown-header">Messages</div>
+                    <ul>
+                        <li>Message from Principal</li>
+                        <li>Teacher meeting reminder</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Actions Dropdown -->
+                <div class="topbar-dropdown" id="quickActionsDropdown">
+                    <div class="dropdown-header">Quick Actions</div>
+                    <ul>
+                        <li><a href="#">Add Student</a></li>
+                        <li><a href="#">Add Teacher</a></li>
+                        <li><a href="#">Create Course</a></li>
+                        <li><a href="#">Generate Report</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="cms-main">
+            {% block content %}
+            <div class="cms-placeholder">
+                <h1>Welcome to College Management System</h1>
+                <p>Use this area for your Django views' content.</p>
+            </div>
+            {% endblock %}
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="cms-footer">
+            <span>© {{ now|date:"Y" }} College Management System · All rights reserved.</span>
+        </footer>
     </div>
-        
-    
-    <!-- <button class="btn Accounts">Accounts</button> -->
-    <button class="btn Students">Students</button>
-    <button class="btn Teachers">Teachers</button>
-    <button class="btn Courses">Courses</button>
-    <button class="btn Attendance">Attendance</button>
-    <button class="btn Results">Results</button>
-</div>  
-    
 
-
-<!-- JAVASCRIPT -->
-<script>
-const toggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-toggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-});
-</script>
-{% block content %}
-{% endblock content %}
-
+    <!-- Base JS -->
+    <script src="{% static 'js/common_code/base.js' %}"></script>
 </body>
 </html>
-            
-
-

@@ -39,3 +39,6 @@ def show_form(request):
 
 def success(request):
     return render(request,'courses/submit.html')
+
+def course_add(request):
+    return render(request, "courses/course_add.html")

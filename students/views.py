@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from . models import Student
 from . forms import StudentRegistration
 from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import StudentForm
 # Create your views here.
 def student_list(request):
     return render (request,'students/student_list.html')
@@ -38,3 +40,15 @@ def show_form(request):
     return render (request, 'students/forms.html', {'forms':frm})
 def success(request):
     return render(request, 'students/submit.html')
+
+def student_add(request):
+    if request.method == "POST":
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("student_add")  # redirect to same page or student list
+    else:
+        form = StudentForm()
+
+    return render(request, "students/student_add.html", {"form": form})
+

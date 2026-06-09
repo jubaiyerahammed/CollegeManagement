@@ -11,5 +11,7 @@ urlpatterns = [
     path('es/', views.enroll_student),
    
     path('form/', views.show_form, name='sform'),
-    path('successfully/', views.success, name='successfully')
+    path('successfully/', views.success, name='successfully'),
+    path("add/", views.course_add, name="course_add"),
+
 ]    

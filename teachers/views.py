@@ -12,3 +12,5 @@ def teacher_update(request):
 def teacher_delate(request):
     return render(request,'teachers/teacher_delate.html')
 
+def teacher_add(request):
+    return render(request, "teachers/teacher_add.html")

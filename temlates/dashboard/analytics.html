@@ -1,0 +1,67 @@
+{% extends "common_code/base.html" %}
+{% load static %}
+
+{% block title %}Analytics{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard/analytics.css' %}">
+
+<div class="analytics-container">
+
+    <!-- Page Title -->
+    <div class="page-header fade-in">
+        <h2>Analytics Dashboard</h2>
+        <p>Student, Teacher, Course & Attendance Insights</p>
+    </div>
+
+    <!-- Top Stats -->
+    <section class="analytics-stats-grid">
+
+        <div class="analytics-card fade-in">
+            <h3>Total Students</h3>
+            <span class="value">{{ student_count }}</span>
+            <canvas id="studentGrowthChart"></canvas>
+        </div>
+
+        <div class="analytics-card fade-in">
+            <h3>Total Teachers</h3>
+            <span class="value">{{ teacher_count }}</span>
+            <canvas id="teacherGrowthChart"></canvas>
+        </div>
+
+        <div class="analytics-card fade-in">
+            <h3>Total Courses</h3>
+            <span class="value">{{ course_count }}</span>
+            <canvas id="courseChart"></canvas>
+        </div>
+
+    </section>
+
+    <!-- Attendance + Revenue -->
+    <section class="two-grid">
+
+        <div class="analytics-card fade-in">
+            <h3>Weekly Attendance Overview</h3>
+            <canvas id="attendanceAnalyticsChart"></canvas>
+        </div>
+
+        <div class="analytics-card fade-in">
+            <h3>Monthly Revenue</h3>
+            <canvas id="revenueChart"></canvas>
+        </div>
+
+    </section>
+
+    <!-- Department Distribution -->
+    <section class="analytics-card fade-in">
+        <h3>Department-wise Student Distribution</h3>
+        <canvas id="departmentChart"></canvas>
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'js/dashboard/analytics.js' %}"></script>
+
+{% endblock %}

@@ -58,3 +58,4 @@ class StudentRegistration(forms.Form):
             raise forms.ValidationError("password doesn't match")
 
         return cleaned_data
+
