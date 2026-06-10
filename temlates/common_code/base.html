@@ -139,6 +139,23 @@
                     </ul>
                 </li>
 
+                <!-- Accounts -->
+                <li class="sidebar-item has-dropdown">
+                    <a href="#" class="sidebar-link">
+                        <span class="sidebar-icon"><i class="fa-solid fa-chalkboard-teacher"></i></span>
+                        <span class="sidebar-text">Accounts</span>
+                        <span class="sidebar-arrow"><i class="fa-solid fa-chevron-right"></i></span>
+                    </a>
+
+                    <ul class="sidebar-submenu">
+                        <li><a href="{% url 'accounts:profile' %}" class="sidebar-sublink">Profile</a></li>
+                        <li><a href="{% url 'accounts:my_account' %}" class="sidebar-sublink">My Account</a></li>
+                        <li><a href="{% url 'accounts:register' %}" class="sidebar-sublink">Registration</a></li>
+                        <li><a href="{% url 'accounts:login' %}" class="sidebar-sublink">Login</a></li>
+                    </ul>
+                </li>
+
+
                 <!-- Settings -->
                 <li class="sidebar-item has-dropdown">
                     <a href="#" class="sidebar-link">
@@ -219,7 +236,7 @@
 
                 <div class="topbar-profile" id="topbarProfile">
                     <div class="profile-avatar">
-                        <img src="{% static 'images/logo.png' %}" alt="User">
+                        <img src="{% static 'images/pictures/logo.png' %}" alt="User">
                     </div>
                     <div class="profile-info">
                         <span class="profile-name">Admin User</span>

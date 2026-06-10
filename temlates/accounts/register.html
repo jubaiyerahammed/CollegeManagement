@@ -1,28 +1,21 @@
-
-
 {% extends "common_code/base.html" %}
 {% load static %}
 
 {% block content %}
 <div class="auth-container">
     <div class="auth-card">
-        <h2 class="auth-title">Login</h2>
+        <h2 class="auth-title">Create Account</h2>
 
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
 
-            <button class="btn btn-primary w-100 mt-2">Login</button>
+            <button class="btn btn-success w-100 mt-2">Register</button>
         </form>
 
         <div class="auth-links mt-3">
-            <a href="{% url 'accounts:password_reset' %}">Forgot Password?</a>
-            <br>
-            <a href="{% url 'accounts:register' %}">Create an Account</a>
+            <a href="{% url 'accounts:login' %}">Already have an account? Login</a>
         </div>
     </div>
 </div>
 {% endblock %}
-
-
- 

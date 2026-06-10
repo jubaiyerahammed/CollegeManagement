@@ -4,17 +4,30 @@ from django.http import HttpResponse
 # Create your views here.
 from django.shortcuts import render, redirect
 from .models import Account
+from django.urls import path
+from django.contrib.auth import views as auth_views
+from . import views
+from .forms import RegistrationForm
 
-def login(request):
+def register(request):
     if request.method == "POST":
-        pin = request.POST.get("pin")
-        try:
-            account = Account.objects.get(pin=pin)
-            request.session["account_id"] = account.id
-            return redirect("menu")
-        except:
-            return render(request, "accounts/login.html", {"error": "Wrong PIN"})
-    return render(request, "accounts/login.html")
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("accounts:login")
+    else:
+        form = RegistrationForm()
+    return render(request, "accounts/register.html", {"form": form})
+# def login(request):
+#     if request.method == "POST":
+#         pin = request.POST.get("pin")
+#         try:
+#             account = Account.objects.get(pin=pin)
+#             request.session["account_id"] = account.id
+#             return redirect("menu")
+#         except:
+#             return render(request, "accounts/login.html", {"error": "Wrong PIN"})
+#     return render(request, "accounts/login.html")
 def menu(request):
     return render(request, "accounts/menu.html")
 def withdraw(request):
@@ -77,3 +90,11 @@ def register_student(request):
     return render (request,'accounts/register_student.html')
 def register_teacher(request):
     return render (request,'accounts/register_teacher.html')
+
+
+def profile(request):
+    return render(request, "accounts/profile.html")
+
+def my_account(request):
+    return render(request, "accounts/my_account.html")
+

@@ -1,13 +1,3 @@
-collegemanagement
-    collegemanagement
-    accounts
-    students
-    teachers
-    courses
-    results
-    attendance
-    static
-    templates
-        accounts
-            login_view.html
-            logout_view.html
+accounts
+balace, deposit, menu, withdraw path and html file golo 
+Finace app a jave
